@@ -72,6 +72,21 @@ git merge main # you merge onto yourself
 3. Confirm with your teammates on how to resolve the conflicts just in case you lose code (THIS HAS HAPPENED TO ME BEFORE)
 4. Use your text editor to help you with merge conflicts (i.e. VSCode has text you can click on)
 
+## Cloning vs. Forking
+Note: we will always be cloning for this course.
+
+### git clone
+command: ```git clone {url}```
+
+The url you will use will be taken off GitHub using the "Clone with HTTPS" feature.
+
+When you clone a repository, it remains **shared** amongst all of the developers who had previously contributed to it so they can see your own changes. Anyone who joins a software development team and plans to contribute to the repository will typically clone a repository.
+
+### forking
+The fork operation (done on the GitHub UI) will create a completely new copy of the target repository. Developers who contributed to the repository that was forked will have no knowledge or access the newly forked repo (so it's all yours). Anyone who wants to set up a new, separate and isolated project that is based on a publicly accessible Git repository should perform a fork.
+
+[More in-depth resource on how to fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) 
+
 ## "I fked up"
 
 ```git stash```: remove all changes to the files you made locally and revert to the old state of since the last commit. Useful when you have been working on code that no longer has a use.
