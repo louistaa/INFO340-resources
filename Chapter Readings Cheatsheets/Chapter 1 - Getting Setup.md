@@ -35,8 +35,8 @@ operable program or batch file.```
 - If it doesn't work, your terminal will say something like ```npm: command not found```.
 
 ## Managing packages with npm
-- npm is a text-based interface
-- You'll install packages (like apps for your phone) through the terminal
+- npm is a text-based interface.
+- You'll install packages (like apps for your phone) through the terminal.
 - Two ways to install packages:
     1. Locally: ```npm install PACKAGE-NAME```.
     2. Globally: ```npm install -g PACKAGE-NAME```.

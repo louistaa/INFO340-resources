@@ -58,7 +58,7 @@ Let's say you have updates from main that you need locally (your teammate just p
 git status # check if you are in the correct branch you want to recieve changes in (i.e. main)
 git pull # pull the changes that someone else has pushed
 ```
-Taking this one step furthur, let's say you need to merge those changes from main to another branch/
+Taking this one step furthur, let's say you need to merge those changes from main to another branch.
 Assumming you're on a branch called louis-branch (or any branch that is not on main):
 ```bash
 git checkout louis-branch # switch to the branch you want to apply changes to
@@ -76,7 +76,7 @@ git merge main # you merge onto yourself
 Note: we will always be cloning for this course.
 
 ### git clone
-command: ```git clone {url}```
+command: ```git clone URL```
 
 The url you will use will be taken off GitHub using the "Clone with HTTPS" feature.
 

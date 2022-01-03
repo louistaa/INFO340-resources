@@ -13,3 +13,5 @@
 - A VERY useful package to speed up the development of your problem sets and project is live-server.
 - To install: ```npm install -g live-server```
     - Notice how we are installing globally because we want to use this package across multiple projects.
+- To run the local server, ```cd``` into the root directory of your project then type ```live-server```. A browser tab should appear up with the localhost address.
+- To stop the server, use the ```crtl + c``` command in the terminal.
