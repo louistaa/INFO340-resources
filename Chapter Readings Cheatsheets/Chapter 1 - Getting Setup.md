@@ -16,10 +16,15 @@
 1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare): enables real-time coding collaboration - great for your group projects.
 
 ## Useful keyboard shortcuts
-1. In a .html file type ```!``` then followed by ```tab``` to create the basic scaffolding of a HTML file.
+1. In a .html file type ```!``` followed by ```tab``` to create the basic scaffolding of a HTML file.
 2. Format your document (make spacing and whitespacing consistent on your html/css/js files):
     - On Windows Shift + Alt + F
     - On Mac Shift + Option + F
+3. In a .html file type ```lorem``` followed by ```tab``` to generate placeholder text.
+4. If want to open VSCode in the current directory you are in, install the ```code .``` command.
+    - In command palette search for 'Install 'code' command in PATH'
+    - More information [here](https://stackoverflow.com/questions/29955500/code-not-working-in-command-line-for-visual-studio-code-on-osx-mac).
+    - I use this shortcut like 10 times a day!
 
 ## Git and GitHub
 - Test if git is working by running the following command in your terminal: ```git --version```. It should return a version number.
