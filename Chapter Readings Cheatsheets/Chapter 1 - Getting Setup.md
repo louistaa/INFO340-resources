@@ -44,12 +44,12 @@ operable program or batch file.```
     - You would want to do this when you know you will use a package across multiple projects. For example, Jest.
 - Installing locally makes it available just in the particular folder you evoked the command in.
     - You would want to do this when your project requires a very niche package that you know you will not use in another project.
-- ```npx``` command lets you install and execute the package at the same time(hence the x). I don't use this too often.
+- ```npx``` command lets you install and execute the package at the same time (hence the x). I don't use this too often.
 
 ## package.json
 - Dependencies are packages that must be installed in order for the program to work.
 - As projects become large, it is common for them to build up many dependencies.
 - You can find your project's list of dependencies in the ```package.json``` file.
 - These dependencies don't come automatically installed, so you have to use npm (similiar how you have to patch a game after installing it for the first time).
-- Using ```npm install``` will install all of the packages listed under in the package.json.
-- 99% of projects in industry will have a package.json so make sure you install your dependencies whenever you download a project or checkout a repository. 
+- Using ```npm install``` will install all of the packages listed under in the package.json. It will take some time to install, depending on the number of dependencies the project has.
+- 99% of projects in industry will have a package.json so make sure you always remember to install your dependencies whenever you download a project or checkout a repository. 
