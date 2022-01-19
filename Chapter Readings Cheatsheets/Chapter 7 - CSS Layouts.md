@@ -195,5 +195,5 @@ The float property can have one of the following values:
 - ```flex-shrink``` works similar to flex-grow, but in reverse. It takes as a value a number (default to 1), which determine what “share” or ratio it should shrink by in order to accommodate any overflow space.
 - ```flex-basis``` allows you to specify the “initial” dimensions of a particular item.
 
-> Honestly, you just practice adjusting values to learn how Flexbox works. You'll faster this way than reading the book / documentation!
+> Honestly, just practice adjusting values to learn how Flexbox works. You'll learn faster this way than reading the book / documentation!
 - There is also a shortcut property ```flex``` that allows you to specify all three values at once: give the ```flex-grow```, ```flex-shrink```, and ```flex-basis``` values separated by spaces (the second two being optional if you want to use the default values).
