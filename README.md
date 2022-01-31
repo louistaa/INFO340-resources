@@ -10,4 +10,4 @@ Resources made by me to **supplement** your understanding of course materials. M
 
 [Chapter Readings Cheatsheets](Chapter%20Readings%20Cheatsheets): I summarize what I think are the most important topics per each chapter.
 
-WIP (NOT RELEASED YET): [Grading Cheatsheets](Grading%20Cheatsheets): Canvas too confusing? Yeah, I know. I explain how projects are graded in my own words plus some tips.
+[Grading Cheatsheets](Grading%20Cheatsheets): Canvas too confusing? Yeah, I know. I explain how projects are graded in my own words plus some tips.
