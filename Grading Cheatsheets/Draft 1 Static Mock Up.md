@@ -56,13 +56,13 @@
 6. Page content is polished on all screen sizes: .5 points
 
 ### Common deduductions: 
-- media queries not on bottom -.2 points
+- Media queries not on bottom -.2 points
 - Lack of complexity in media queries. Consider changing text sizes and positioning of elements -.2 points
 - Webite does not respond to very small viewports: everything gets squished to the left -.5 points
 - HTML cut off on smaller viewports, HTML elements start overlapping -.3 points
 - Under utilized whitespace -.1 points
-- website structure does not change very much on different viewports -.5 points
-- content gets cut off as viewport gets smaller (content doesn't resize) -.3 points
+- Website structure does not change very much on different viewports -.5 points
+- Content gets cut off as viewport gets smaller (content doesn't resize) -.3 points
 - HTML elements/text gets way too small on smaller viewports -.2 points, multiple elements: -.4 points
 
 ## Cleaning Coding Style (HTML/CSS): 1 point possible
@@ -78,8 +78,8 @@
 - CSS file is name something other than 'style.css' -.1 point
 - Inconsistent spacing / identenation: -.1 point, -.2 points if both
 - No / not enough comments on HTML/CSS: -.1 point / -.2 points if both
-- extraneous whitepsace on files -.1
+- Extraneous whitepsace on files -.1
 
 ## Published Site: .5 points possible
 ### Checklist point breakdown:
-- Site is deploye to GitHub Pages: .5 points
+- Site is deployed to GitHub Pages: .5 points
