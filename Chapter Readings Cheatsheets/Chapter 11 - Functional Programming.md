@@ -1,4 +1,4 @@
-# Chapter 10 Functional Programming
+# Chapter 11 Functional Programming
 ## Functions ARE Variables
 - Just how variables can be type ```int``` or ```string```, variables can be type ```function```.
 - IMPORTANT: We refer to a function by it’s name without the parentheses.
