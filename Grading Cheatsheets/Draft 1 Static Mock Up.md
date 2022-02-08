@@ -30,6 +30,7 @@
 - Overlapping HTML elements: -.4 points
 - Incongruent sizes for like-elements (buttons, cards, pictures, etc.): -.5 points
 - Incorrect use of flexbox/grid: -.3 points
+- Styles elements in html: .-3 points
 
 ## Accessibility: 1.5 points possible
 ### Checklist point breakdown:
