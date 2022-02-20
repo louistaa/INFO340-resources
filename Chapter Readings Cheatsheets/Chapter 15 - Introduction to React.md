@@ -1,4 +1,4 @@
-# Introduction to React
+# Chapter 15: Introduction to React
 - React is “a JavaScript library for building user interfaces” developed by Facebook.
 - React allows you to dynamically generate and interact with the DOM, similar to what you might do with jQuery and using the DOM API.
 - React was created to make it much easier to define and manipulate lots of different parts of the DOM, and to do so quickly.
@@ -184,3 +184,71 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 - The index.js file will usually just import a single component; that file stays very short and sweet. Put all of your component definitions in other files.
 
+## Properties (props)
+- Props are the “input parameters” to a component
+
+```js
+//Passing a prop called `message` with value "Hello property"
+<MessageItem message="Hello property!" />;
+```
+- Prop names are written in camelCase.
+- props are received as a single argument to the function (usually called props). This argument is a regular JavaScript object whose keys are the props’ “names”:
+
+```js
+//Define a component representing information about a user
+function UserInfo(props) {
+    //access the individual props from inside the argument object
+    let userName = props.userName;
+    let descriptor = props.descriptor;
+
+    //can use props for logic or processing
+    let userNameUpper = props.userName.toUpperCase();
+
+    return (
+        <div>
+            <h1>{userNameUpper}</h1>
+            <p>Hello, my name is {name} and I am a {descriptor}</p>
+        </div>
+    )
+}
+
+let userInfo = <UserInfo userName="Ethel" descriptor="Aardvark" />;
+```
+> Again, all props are stored in the argument object—you have to access them through that value.
+
+## Props and Composition
+- Since props are specified when a component instance is created, this means that a “parent” component will need to specify the props for its children.
+- This creates a one-directional data flow—the data values are passed into the parent, which then passes data down to the children (not vice versa).
+
+## Create vs. Render
+- In order to effectively render a list (array) of data, you should define a Component that declares how to render a single element of that list (e.g., MessageItem). 
+- This allows you to focus on only a single problem, developing a re-usable solution. Then you define another component that represents how to render a whole list of elements (e.g., MessageList). 
+- And because including an array of Components as an inline expression in JSX will render those elements as siblings, it’s easy to render this list from within the parent:
+- This kind of transformation is a mapping operation (each data value is mapped to a Component), and so can be done effecttively with the ```map()``` method:
+```js
+function MessageList(props) {
+    let msgItems = props.messages.map((msgObject) => {
+        //return a new MessageItem for each message object
+        //attributes are listed on their own lines for readability
+        return <MessageItem
+                    message={msgObject.content}
+                    key={msgObject.id.toString()} {/* pass in a key prop! */}
+                    />;
+    }) //end of .map()
+
+    return (
+        <div>
+            <h1>Messages for you</h1>
+            <ul>
+                {msgItems}
+            </ul>
+        </div>
+    ); //end of return
+}
+
+//Define and pass a prop to the parent comment when rendering it
+ReactDOM.render(<MessageList messages={messageObjArray} />,
+                document.getElementById('root'));
+```
+-  React requires you to specify an additional prop called key for each element in an array of components.
+- React will use the key to keep track of those elements, so if they change over time (i.e., elements are added or removed from the array) React will be able to more efficiently modify the DOM.

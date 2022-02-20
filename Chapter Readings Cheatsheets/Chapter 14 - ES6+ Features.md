@@ -1,4 +1,4 @@
-# Chapter 15 ES6+ Features
+# Chapter 14 ES6+ Features
 - ECMAScript specification for the JavaScript language has gone through several different versions, each of which adds new syntax and features to try and make the language more powerful or easier to work with. In 2015, a new version of the language was released—officially called “ECMAScript 2015”, most developers refer to it by the working name “ES6” (e.g., version 6 of the language).
 
 ## ES6 Class Syntax
