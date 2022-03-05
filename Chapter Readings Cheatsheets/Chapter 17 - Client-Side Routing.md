@@ -87,3 +87,40 @@ function UserLayout(props) {
     )
 }
 ```
+## URL Parameters
+- Written using :param syntax (a colon : followed by the parameter name). For example, the URI
+```code
+https://api.github.com/users/:username
+```
+- from the Github API refers to a particular user—you can replace :username with any value you want: ```https://api.github.com/users/joelwross``` refers to the joelwross user (so username = 'joelwross'), while ```https://api.github.com/users/mkfreeman``` refers to the mkfreeman user (so username = 'mkfreeman').
+- React Router supports a similar syntax when specifying Route paths:
+```js
+<Route path='posts/:postId' element={<BlogPost />} />
+```
+The above will match a path that starts with ```posts/``` and is followed by any other path segment. The ```:postId``` (because it starts with the leading :) will be treated as a parameter which will be assigned whatever value is part of the URI in that spot—so ```post/hello``` would have ```'hello'``` as the ```postId```, and ```post/2017-10-31``` would have ```'2017-10-31'``` as the ```postId```.
+- You can access the values assigned to the URL parameters by using the ```useParams``` hook provided by ```react-router```. This hook returns an object whose keys are the parameter names and whose values are the param values:
+
+```js
+import { useParams } from 'react-router-dom';
+
+function BlogPost(props) {
+    //access the URL params as an object
+    //it's also common to use object destructuring here
+    const urlParams = useParams();
+
+    return (
+        {/* postId was the URL parameter from the above example! */}
+        <h1>You are looking at blog post {urlParams.postId}</h1>
+    )
+}
+```
+## Linking
+- While specifying ```<Route>``` elements will allow you to show different “pages” at different URLs, in order for a Single Page Application to function you need to be able to navigate between routes without causing the page to reload. Thus you can’t just use normal ```<a>``` elements to link between “pages”—browsers interpret clicking on ```<a>``` elements as a command to send a new HTTP request, and you instead just want to change the URL and re-render the App.
+-  React Router provides a ```<Link>``` element that you can use to create a hyperlink to another route within the application. This component takes a to prop that you use to specify the route that it links to:
+```js 
+<Link to="about">Click to visit the About Page</Link>
+```
+- The component will render as an ```<a>``` element with a special onClick handler that keeps the browser from loading a new page.
+-  Importantly: a ```<Link>``` is a replacement for an ```<a>``` element
+- A to property that is relative path (so doesn’t have a starting ```/```) will resolve relative to its parent route.
+- React Router also provides a ```<NavLink>``` Component. This works exactly like the ```<Link>``` component, except if the to route matches the current route, then the element will have the active CSS class added to it. This is used for example to have a navigation section “highlight” the link to the page you’re currently on, helping the user understand where they are on the page.
