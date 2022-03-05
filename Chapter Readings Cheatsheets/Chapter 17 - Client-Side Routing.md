@@ -54,3 +54,36 @@ function App() {
 - All ```<Route>``` elements are made children of a single element called ```<Routes>```.
 - The ```<Routes>``` element represents the “collection” of Routes that the Router needs choose between when deciding what Component to render (if any). You can think of it as acting like a ```switch``` statement.
 - Note that a ```<Routes>``` can only have ```<Route>``` elements as children, and a ```<Route>``` element can only be the child of a ```<Routes>```. They go together, and nothing else (no other ```<div>```, etc. elements) can come between them.
+
+## Nesting Routes
+```js
+<Routes>
+    <Route path="user" element={<UserLayout />} >
+        <Route path="profile" element={<UserProfile />} />
+        <Route path="favorites" element={<FavoriteItems />} />
+    </Route>
+    <Route path="items" element={ <ItemList />} />
+</Routes>
+```
+- When the <Routes> element goes to match a URL and determine which element to render, it will start with with the first segment of the path, rendering that element. For example, if the path starts with /user, then the Router will render the <UserLayout> element. But it will then continue checking further segments of the path.
+
+- /user/profile renders ```<UserLayout><UserProfile/></UserLayout>```
+- /user/favorites renders ```<UserLayout><UserFavorites/></UserLayout>```
+- /user renders ```<UserLayout></UserLayout>``` (no child)
+- /items renders ```<ItemList />```
+> (You can think of each “nested child” step as a / in the path)
+
+### Outlet
+- You specify where in the parent element the child element will render using the ```<Outlet>``` Component.
+- This component will be replaced by the element of whichever child route matches the URL segment:
+```js
+function UserLayout(props) {
+    render (
+        <div className="user-layout">
+            <h1>User Page</h1>
+            {/* will be replaced with <UserProfile>, <UserFavorites>, or null */}
+            <Outlet />
+        </div>
+    )
+}
+```
