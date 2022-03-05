@@ -62,3 +62,64 @@ fetch(url)
     });
 ```
 - Importantly, the ```.catch()``` method will “catch” errors from all previous Promises in a .then() chain! This means that the above ```.catch()``` will show both errors in the downloading (```.fetch()```), and errors in the body encoding (```.json()```).
+
+## AJAX with React
+- APIs—including ```fetch()``` are not “built-in” to React like they are with a modern browser. As discussed in Chapter 14, in order to support these “other” browsers, you will need to load a polyfill. You can do that with React by installing the ```whatwg-fetch``` library, and then importing that polyfill in your React code:
+```bash
+# On command line, install the polyfill
+npm install whatwg-fetch
+```
+- In your ```index.js```:
+```js
+//In your JavaScript, import the polyfill (loading it "globally")
+//This will make the `fetch()` function available
+import 'whatwg-fetch';
+```
+- Thus the best practice is to send the fetch() request for data, and then when the data has been downloaded, call the a set state function to update the component with the downloaded data.
+- An effect hook lets you hook into the lifecycle of a component, specifying some code (a function) that should be run after the component finishes rendering.
+- They are called effect hooks because they define a side effect to the component rendering.
+
+```js
+//import the hooks used
+import React, { useState, useEffect } from 'react';
+
+function MyComponent() {
+    //store the data in a state variable, initialized as an empty array
+    const [data, setData] = useState([]);
+
+    //specify the effect hook function
+    useEffect(() => {
+        fetch(dataUri) //send AJAX request
+          .then((res) => res.json())
+          .then((data) => {
+            let processedData = data.filter(...).map(...) //do desired processing
+            setData(processedData) //change the state and re-render
+          })
+    }, []) //empty array is the second argument to the `useEffect()` function. 
+           //It says to only run this effect on first render
+
+    //Map the data values into DOM elements
+    //Note that this works even before data is loaded (when the array is empty!)
+    let dataItems = data.map((item) => {
+        return <li key={item.id}>{item.value}</li>; //return DOM version of datum
+    })
+
+    //render the data items (e.g., as a list)
+    return <ul>{dataItems}</ul>; 
+  }
+}
+```
+- Calling the ```useEffect()``` function specifies a callback function that will be run after the component renders.
+- It takes as an argument the callback function to run after the component renders.
+- Inside the ```useEffect()``` callback goes the normal ```fetch()``` call. Notice that the downloaded data is then assigned to the component’s state variable by calling the set state function.
+- While technically it means the component is rendering twice (once without data, then once with), React can batch these requests together so that if the data downloads fast enough, the user will not notice.
+- By default, the effect callback will be executed after each time the component renders. That means that if the component needed to re-render (because a prop changed for example), then the data would be downloaded a second time.
+- To avoid this, you can pass the useEffect() function an optional second argument.
+- This argument should be an array of values that the effect “depends on”—the effect will only be re-run if one of these variables changes between renders:
+```js
+//an effect that only re-runs if the `count` variable changes
+useEffect(() => {
+    //...
+}, [count])
+```
+- By passing an empty array as a second argument, you tell the effect that it should only re-run if one of those (non-existent) variables updates—and since there are no variables listed, it will never run a second time.
