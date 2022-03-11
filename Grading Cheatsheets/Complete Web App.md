@@ -97,4 +97,4 @@
     - Well-scoped and informatively-named function components and hooks
     - No ```.map()```/```filter()```, etc. inside a ```return```
 8. Well-commented code: .1 points
-9. Running app doesn't produce any errors in the developer console: .25 points
+9. Running app doesn't produce any errors in the developer console: .15 points
